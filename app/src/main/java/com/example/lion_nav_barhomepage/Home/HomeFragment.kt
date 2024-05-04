@@ -27,9 +27,7 @@ import com.denzcoskun.imageslider.models.SlideModel
 import com.example.lion_nav_barhomepage.Appointment.AppointmentFragment
 import com.example.lion_nav_barhomepage.Appointment.appointment
 import com.example.lion_nav_barhomepage.Facilities.FacilitiesFragment
-import com.example.lion_nav_barhomepage.News.HealthNewsFragment
-import com.example.lion_nav_barhomepage.News.LCGHNewsFragment
-import com.example.lion_nav_barhomepage.News.NewsFragment
+
 import com.example.lion_nav_barhomepage.R
 import com.example.lion_nav_barhomepage.Vaccines.newvaccines
 import com.example.lion_nav_barhomepage.databinding.FragmentHomeBinding
@@ -138,12 +136,7 @@ class HomeFragment : Fragment() {
         binding.b3.setOnClickListener {
             replaceFragment(FacilitiesFragment())
         }
-        binding.healthnews.setOnClickListener {
-            replaceFragment(HealthNewsFragment())
-        }
-        binding.lcghnews.setOnClickListener {
-            replaceFragment(LCGHNewsFragment())
-        }
+
 //        getInfo()
 
         val collapsingToolbarLayout: CollapsingToolbarLayout = binding.collapsingToolbar

@@ -266,18 +266,18 @@
 <!--                app:layout_constraintStart_toStartOf="parent"-->
 <!--                app:layout_constraintTop_toBottomOf="@+id/highlights" />-->
             <RelativeLayout
+                android:id="@+id/imageSlider"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/imageSlider"
-                app:layout_constraintTop_toBottomOf="@id/highlights"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                 app:layout_constraintBottom_toTopOf="@+id/stats"
                 android:layout_marginLeft="25dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginRight="25dp"
+
                 android:background="#27FFD26B"
-                android:layout_marginBottom="15dp"
-                android:layout_marginTop="15dp">
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/highlights">
 
                 <LinearLayout
                     android:id="@+id/todaysupdates"
@@ -323,8 +323,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
                         android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
                         android:layout_marginEnd="10dp"
                         android:shadowColor="#ffffff"
                         android:shadowDx="4"
@@ -344,338 +344,285 @@
                         android:layout_marginBottom="10dp"
                         android:background="@drawable/ic_baseline_arrow_circle_right_24"
                         android:backgroundTint="#022896" />
-                </LinearLayout>m
+                </LinearLayout>
 
                 <HorizontalScrollView
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
                     android:layout_marginTop="16.5dp"
                     android:layout_toEndOf="@id/todaysupdates">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
                         android:orientation="horizontal">
 
-                    <LinearLayout
-                        android:id="@+id/recentapt"
-                        android:layout_width="180dp"
-                        android:layout_height="150dp"
-                        android:background="@drawable/homerecyclerviewbackground"
-                        android:orientation="vertical">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Appointment Updates"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:shadowColor="#000C2F"
-                            android:shadowDx="4"
-                            android:shadowDy="4"
-                            android:shadowRadius="2"
-                            android:layout_marginStart="12dp"
-                            android:layout_marginTop="11dp"
-                            android:textAllCaps="false"
-                            android:textColor="#ffffff"/>
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1.5dp"
-                            android:layout_marginStart="7dp"
-                            android:layout_marginEnd="7dp"
-                            android:layout_marginTop="3.5dp"
-                            android:background="#FFFFFF" />
                         <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_marginTop="8dp">
+                            android:id="@+id/recentapt"
+                            android:layout_width="180dp"
+                            android:layout_height="150dp"
+                            android:background="@drawable/homerecyclerviewbackground"
+                            android:orientation="vertical">
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-
-                                android:text="Doctor Name:"
-                                android:textSize="12sp"
-                                android:textStyle="bold"
-                                android:shadowColor="#000C2F"
-                                android:shadowDx="4"
-                                android:shadowDy="4"
-                                android:shadowRadius="2"
                                 android:layout_marginStart="12dp"
-                                android:textAllCaps="false"
-                                android:textColor="#ffffff"/>
-                            <TextView
-                                android:id="@+id/doc_n"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textSize="12sp"
-                                android:textStyle="bold"
+                                android:layout_marginTop="11dp"
                                 android:shadowColor="#000C2F"
                                 android:shadowDx="4"
                                 android:shadowDy="4"
                                 android:shadowRadius="2"
-                                android:layout_marginStart="2dp"
+                                android:text="Appointment Updates"
                                 android:textAllCaps="false"
-                                android:textColor="#ffffff"/>
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_marginTop="8dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-                            <TextView
+                                android:textColor="#ffffff"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
 
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1.5dp"
+                                android:layout_marginStart="7dp"
+                                android:layout_marginTop="3.5dp"
+                                android:layout_marginEnd="7dp"
+                                android:background="#FFFFFF" />
+
+                            <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Date:"
-                                android:textSize="12sp"
-                                android:textStyle="bold"
-                                android:shadowColor="#000C2F"
-                                android:shadowDx="4"
-                                android:shadowDy="4"
-                                android:shadowRadius="2"
-                                android:layout_marginStart="12dp"
-                                android:textAllCaps="false"
-                                android:textColor="#ffffff"/>
-                            <TextView
-                                android:id="@+id/apt_det_date"
+                                android:layout_marginTop="8dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+
+                                    android:layout_marginStart="12dp"
+                                    android:shadowColor="#000C2F"
+                                    android:shadowDx="4"
+                                    android:shadowDy="4"
+                                    android:shadowRadius="2"
+                                    android:text="Doctor Name:"
+                                    android:textAllCaps="false"
+                                    android:textColor="#ffffff"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/doc_n"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="2dp"
+                                    android:shadowColor="#000C2F"
+                                    android:shadowDx="4"
+                                    android:shadowDy="4"
+                                    android:shadowRadius="2"
+                                    android:textAllCaps="false"
+                                    android:textColor="#ffffff"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textSize="12sp"
-                                android:textStyle="bold"
-                                android:shadowColor="#000C2F"
-                                android:shadowDx="4"
-                                android:shadowDy="4"
-                                android:shadowRadius="2"
-                                android:layout_marginStart="2dp"
-                                android:textAllCaps="false"
-                                android:textColor="#ffffff"/>
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_marginTop="8dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-                            <TextView
+                                android:layout_marginTop="8dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="12dp"
+                                    android:shadowColor="#000C2F"
+                                    android:shadowDx="4"
+                                    android:shadowDy="4"
+                                    android:shadowRadius="2"
+                                    android:text="Date:"
+                                    android:textAllCaps="false"
+                                    android:textColor="#ffffff"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/apt_det_date"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="2dp"
+                                    android:shadowColor="#000C2F"
+                                    android:shadowDx="4"
+                                    android:shadowDy="4"
+                                    android:shadowRadius="2"
+                                    android:textAllCaps="false"
+                                    android:textColor="#ffffff"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Time:"
-                                android:textSize="12sp"
-                                android:textStyle="bold"
-                                android:shadowColor="#000C2F"
-                                android:shadowDx="4"
-                                android:shadowDy="4"
-                                android:shadowRadius="2"
-                                android:layout_marginStart="12dp"
-                                android:textAllCaps="false"
-                                android:textColor="#ffffff"/>
-                            <TextView
-                                android:id="@+id/apt_det_time"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textSize="12sp"
-                                android:textStyle="bold"
-                                android:shadowColor="#000C2F"
-                                android:shadowDx="4"
-                                android:shadowDy="4"
-                                android:shadowRadius="2"
-                                android:layout_marginStart="2dp"
-                                android:textAllCaps="false"
-                                android:textColor="#ffffff"/>
-                        </LinearLayout>
+                                android:layout_marginTop="8dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="12dp"
+                                    android:shadowColor="#000C2F"
+                                    android:shadowDx="4"
+                                    android:shadowDy="4"
+                                    android:shadowRadius="2"
+                                    android:text="Time:"
+                                    android:textAllCaps="false"
+                                    android:textColor="#ffffff"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/apt_det_time"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="2dp"
+                                    android:shadowColor="#000C2F"
+                                    android:shadowDx="4"
+                                    android:shadowDy="4"
+                                    android:shadowRadius="2"
+                                    android:textAllCaps="false"
+                                    android:textColor="#ffffff"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
 
 
-
-
-                    </LinearLayout>
-                    <LinearLayout
-                        android:id="@+id/vitals"
-                        android:layout_width="180dp"
-                        android:layout_height="150dp"
-                        android:background="@drawable/homerecyclerviewbackground"
-                        android:orientation="vertical">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Patient Vitals"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:shadowColor="#000C2F"
-                            android:shadowDx="4"
-                            android:shadowDy="4"
-                            android:shadowRadius="2"
-                            android:layout_marginStart="12dp"
-                            android:layout_marginTop="11dp"
-                            android:textAllCaps="false"
-                            android:textColor="#ffffff"/>
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1.5dp"
-                            android:layout_marginStart="7dp"
-                            android:layout_marginEnd="7dp"
-                            android:layout_marginTop="25dp"
-                            android:background="#FFFFFF" />
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_marginTop="8dp">
-                            <ImageView
-                                android:layout_width="17dp"
-                                android:layout_height="17dp"
-                                android:background="@drawable/weight_svgrepo_com_2"
-                                android:layout_marginStart="12dp"
-                                android:backgroundTint="@color/white"/>
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-
-                                android:text="Weight:"
-                                android:textSize="12sp"
-                                android:textStyle="bold"
-                                android:shadowColor="#000C2F"
-                                android:shadowDx="4"
-                                android:shadowDy="4"
-                                android:shadowRadius="2"
-                                android:layout_marginStart="12dp"
-                                android:textAllCaps="false"
-                                android:textColor="#ffffff"/>
-                            <TextView
-                                android:id="@+id/pheight"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textSize="12sp"
-                                android:textStyle="bold"
-                                android:shadowColor="#000C2F"
-                                android:shadowDx="4"
-                                android:shadowDy="4"
-                                android:shadowRadius="2"
-                                android:layout_marginStart="2dp"
-                                android:textAllCaps="false"
-                                android:textColor="#ffffff"/>
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_marginTop="8dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-                            <ImageView
-                                android:layout_width="17dp"
-                                android:layout_height="17dp"
-                                android:background="@drawable/body_height_svgrepo_com"
-                                android:layout_marginStart="13dp"
-                                android:backgroundTint="@color/white"/>
-                            <TextView
-
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Height:"
-                                android:textSize="12sp"
-                                android:textStyle="bold"
-                                android:shadowColor="#000C2F"
-                                android:shadowDx="4"
-                                android:shadowDy="4"
-                                android:shadowRadius="2"
-                                android:layout_marginStart="12dp"
-                                android:textAllCaps="false"
-                                android:textColor="#ffffff"/>
-                            <TextView
-                                android:id="@+id/Pweight"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textSize="12sp"
-                                android:textStyle="bold"
-                                android:shadowColor="#000C2F"
-                                android:shadowDx="4"
-                                android:shadowDy="4"
-                                android:shadowRadius="2"
-                                android:layout_marginStart="2dp"
-                                android:textAllCaps="false"
-                                android:textColor="#ffffff"/>
                         </LinearLayout>
 
-                    </LinearLayout>
+                        <LinearLayout
+                            android:id="@+id/vitals"
+                            android:layout_width="180dp"
+                            android:layout_height="150dp"
+                            android:background="@drawable/homerecyclerviewbackground"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="12dp"
+                                android:layout_marginTop="11dp"
+                                android:shadowColor="#000C2F"
+                                android:shadowDx="4"
+                                android:shadowDy="4"
+                                android:shadowRadius="2"
+                                android:text="Patient Vitals"
+                                android:textAllCaps="false"
+                                android:textColor="#ffffff"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1.5dp"
+                                android:layout_marginStart="7dp"
+                                android:layout_marginTop="25dp"
+                                android:layout_marginEnd="7dp"
+                                android:background="#FFFFFF" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="17dp"
+                                    android:layout_height="17dp"
+                                    android:layout_marginStart="12dp"
+                                    android:background="@drawable/weight_svgrepo_com_2"
+                                    android:backgroundTint="@color/white" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+
+                                    android:layout_marginStart="12dp"
+                                    android:shadowColor="#000C2F"
+                                    android:shadowDx="4"
+                                    android:shadowDy="4"
+                                    android:shadowRadius="2"
+                                    android:text="Weight:"
+                                    android:textAllCaps="false"
+                                    android:textColor="#ffffff"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/pheight"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="2dp"
+                                    android:shadowColor="#000C2F"
+                                    android:shadowDx="4"
+                                    android:shadowDy="4"
+                                    android:shadowRadius="2"
+                                    android:textAllCaps="false"
+                                    android:textColor="#ffffff"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="17dp"
+                                    android:layout_height="17dp"
+                                    android:layout_marginStart="13dp"
+                                    android:background="@drawable/body_height_svgrepo_com"
+                                    android:backgroundTint="@color/white" />
+
+                                <TextView
+
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="12dp"
+                                    android:shadowColor="#000C2F"
+                                    android:shadowDx="4"
+                                    android:shadowDy="4"
+                                    android:shadowRadius="2"
+                                    android:text="Height:"
+                                    android:textAllCaps="false"
+                                    android:textColor="#ffffff"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/Pweight"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="2dp"
+                                    android:shadowColor="#000C2F"
+                                    android:shadowDx="4"
+                                    android:shadowDy="4"
+                                    android:shadowRadius="2"
+                                    android:textAllCaps="false"
+                                    android:textColor="#ffffff"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                        </LinearLayout>
                     </LinearLayout>
 
                 </HorizontalScrollView>
 
             </RelativeLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_marginStart="23dp"
-                android:layout_marginTop="25dp"
-                android:layout_marginEnd="23dp"
-                android:layout_marginBottom="10dp"
-                android:background="#4705239C"
-                app:layout_constraintBottom_toTopOf="@id/stats"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/imageSlider" />
-
-            <TextView
-                android:id="@+id/stats"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="20dp"
-                android:shadowColor="#B5F8C85F"
-                android:shadowDx="4"
-                android:shadowDy="4"
-                android:shadowRadius="2"
-                android:text="News"
-                android:textColor="#022896"
-                android:textSize="26sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.03"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/imageSlider" />
-            <Button
-                android:layout_width="170dp"
-                android:layout_height="130dp"
-                android:id="@+id/healthnews"
-                android:layout_marginTop="18dp"
-                android:layout_marginStart="10dp"
-                android:shadowColor="#000000"
-                android:shadowDx="7"
-                android:paddingBottom="2dp"
-                android:paddingRight="4dp"
-                android:shadowDy="4"
-                android:shadowRadius="2"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                android:textSize="18sp"
-                app:layout_constraintTop_toBottomOf="@id/stats"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/lcghnews"
-                android:layout_marginBottom="30dp"
-                android:text="Health News"
-                android:background="@drawable/news_b" />
 
 
-            <Button
-                android:layout_marginEnd="10dp"
-                android:layout_width="170dp"
-                android:layout_height="130dp"
-                android:id="@+id/lcghnews"
-                android:layout_marginTop="18dp"
-                android:shadowColor="#000000"
-                android:shadowDx="7"
-                android:paddingBottom="2dp"
-                android:paddingRight="4dp"
-                android:shadowDy="4"
-                android:shadowRadius="2"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                android:textSize="18sp"
-                app:layout_constraintTop_toBottomOf="@id/stats"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/healthnews"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:text="LCGH News"
-                android:background="@drawable/news_b"
-                android:layout_marginBottom="30dp"/>
+
 
 
 

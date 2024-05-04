@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.example.lion_nav_barhomepage"
@@ -44,10 +44,11 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth-ktx:21.0.3'
     implementation 'com.google.firebase:firebase-firestore-ktx:24.1.1'
     implementation 'com.google.firebase:firebase-database-ktx:20.0.4'
-    implementation 'com.google.firebase:firebase-firestore:24.1.1'
+
     implementation 'com.google.firebase:firebase-storage-ktx:20.0.1'
     implementation 'com.google.firebase:firebase-messaging-ktx:23.0.3'
     implementation 'androidx.test:core-ktx:1.4.0'
+    implementation 'androidx.activity:activity:1.8.0'
     def nav_version = "2.3.0-alpha01"
     implementation platform('com.google.firebase:firebase-bom:29.3.1')
     implementation 'androidx.core:core-ktx:1.7.0'

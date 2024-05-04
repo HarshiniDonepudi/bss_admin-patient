@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Lionnavbarhomepage">
         <activity
+            android:name=".DandPActivity"
+            android:exported="false" />
+        <activity
             android:name=".CovidActivity"
             android:exported="false" />
         <activity

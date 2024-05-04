@@ -21,11 +21,10 @@ import androidx.fragment.app.Fragment
 import coil.load
 import com.example.lion_nav_barhomepage.Appointment.AppointmentFragment
 import com.example.lion_nav_barhomepage.Contact.ContactFragment
-import com.example.lion_nav_barhomepage.Covid.CovidFragment
+
 import com.example.lion_nav_barhomepage.Facilities.FacilitiesFragment
 import com.example.lion_nav_barhomepage.Home.HomeFragment
-import com.example.lion_nav_barhomepage.News.NewsFragment
-import com.example.lion_nav_barhomepage.News.NewsImageFragment
+
 import com.example.lion_nav_barhomepage.Vaccines.BookVaccineFragment
 import com.example.lion_nav_barhomepage.Vaccines.NewVaccinesFragment
 import com.example.lion_nav_barhomepage.Vaccines.VaccineInfoFragment
@@ -36,7 +35,7 @@ import com.example.lion_nav_barhomepage.about.OurTeamFragment
 import com.example.lion_nav_barhomepage.doctors.DoctorsFragment
 import com.example.lion_nav_barhomepage.doctors.DoctorsProfileFragment
 import com.example.lion_nav_barhomepage.doctors.DoctorsViewModel
-import com.example.lion_nav_barhomepage.gallery.ImageFragment
+
 import com.example.lion_nav_barhomepage.patientdashboard.*
 import com.example.lion_nav_barhomepage.patientdashboard.appointment.PatientAppointmentsFragment
 import com.example.lion_nav_barhomepage.patientdashboard.diagnosis.DiagnosisFragment
@@ -161,10 +160,8 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_vaccines -> replaceFragment(NewVaccinesFragment(), it.title.toString())
                 R.id.nav_facilities -> replaceFragment(FacilitiesFragment(), it.title.toString())
                 R.id.nav_Contact -> replaceFragment(ContactFragment(), it.title.toString())
-                R.id.nav_gallery -> replaceFragment(GalleryFragment(), it.title.toString())
-                R.id.nav_covid -> replaceFragment(CovidFragment(), it.title.toString())
-                R.id.nav_lions -> replaceFragment(ChatBotFragment(), it.title.toString())
-                R.id.nav_news -> replaceFragment(NewsFragment(),it.title.toString())
+
+
                 R.id.nav_logout -> logout()
 
                 R.id.nav_about -> replaceFragment(AboutFragment(), it.title.toString())
@@ -216,13 +213,10 @@ class MainActivity : AppCompatActivity() {
             is DoctorsFragment -> navView.setCheckedItem(R.id.nav_Doctors)
             is DoctorsProfileFragment -> navView.setCheckedItem(R.id.nav_Doctors)
             is FacilitiesFragment -> navView.setCheckedItem(R.id.nav_facilities)
-            is CovidFragment -> navView.setCheckedItem(R.id.nav_covid)
-            is ChatBotFragment -> navView.setCheckedItem(R.id.nav_lions)
             is AboutFragment -> navView.setCheckedItem(R.id.nav_about)
             is ContactFragment -> navView.setCheckedItem(R.id.nav_Contact)
-            is GalleryFragment -> navView.setCheckedItem(R.id.nav_gallery)
             is AppointmentFragment -> navView.setCheckedItem(R.id.nav_appointments)
-            is NewsFragment->navView.setCheckedItem(R.id.nav_news)
+
             else -> menuItem.isChecked = false
         }
 
@@ -283,13 +277,7 @@ class MainActivity : AppCompatActivity() {
                 replaceFragment(VaccinesFragment(), "Vaccines")
             } else if (id is AddReportsFragment) {
                 replaceFragment(ReportsFragment(), "Reports")
-            } else if (id is ImageFragment) {
-                replaceFragment(GalleryFragment(), "Gallery")
-            }else if (id is NewsImageFragment) {
-            replaceFragment(NewsFragment(), "News")
-        }
-        else if (id is ImageFragment) {
-            replaceFragment(GalleryFragment(), "Gallery")
+
         }
         else if (id is BookVaccineFragment) {
             replaceFragment(VaccineInfoFragment(), "Vaccine")

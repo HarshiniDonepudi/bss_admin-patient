@@ -30,7 +30,8 @@ class LoginActivity : AppCompatActivity() {
         val tabLayout: TabLayout = findViewById(R.id.tab)
 
         tabLayout.addTab(tabLayout.newTab().setText("Register"));
-        tabLayout.addTab(tabLayout.newTab().setText("Login"));
+        tabLayout.addTab(tabLayout.newTab().setText("Patient Login"));
+        tabLayout.addTab(tabLayout.newTab().setText("Admin Login"));
         val viewPager: ViewPager = findViewById(R.id.viewpage)
         view_Pager= viewPager
 //        fb.setOnClickListener {

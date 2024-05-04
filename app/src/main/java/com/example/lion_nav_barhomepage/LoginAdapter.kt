@@ -21,6 +21,7 @@ internal class LoginAdapter(
                 LoginTabFragment()
 
             }
+
             else -> getItem(position)
         }
     }
