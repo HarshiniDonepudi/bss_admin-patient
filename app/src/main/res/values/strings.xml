@@ -98,5 +98,12 @@
 
     <string name="my_text"><u>View Profile</u>.</string>
     <string name="adduser">addUser</string>
+    <string name="Sun">Sun</string>
+    <string name="Mon">Mon</string>
+    <string name="Tue">Tue</string>
+    <string name="Wed">Wed</string>
+    <string name="Thur">Thur</string>
+    <string name="Fri">Fri</string>
+    <string name="Sat">Sat</string>
 
 </resources>

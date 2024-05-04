@@ -15,6 +15,7 @@ import com.example.lion_nav_barhomepage.IntroActivity
 import com.example.lion_nav_barhomepage.LoginActivity
 import com.example.lion_nav_barhomepage.PatientProfileActivity
 import com.example.lion_nav_barhomepage.R
+import com.example.lion_nav_barhomepage.doctor.Doctorslist
 
 
 class DandPActivity : AppCompatActivity() {
@@ -29,7 +30,7 @@ class DandPActivity : AppCompatActivity() {
         val patients: Button = findViewById(R.id.patients)
 
         doctors.setOnClickListener {
-            val intent = Intent(this, IntroActivity::class.java)
+            val intent = Intent(this, Doctorslist::class.java)
             startActivity(intent)
         }
         patients.setOnClickListener {
