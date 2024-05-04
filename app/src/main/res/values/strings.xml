@@ -97,5 +97,6 @@
     <string name="menu_lions">Lions Assistant</string>
 
     <string name="my_text"><u>View Profile</u>.</string>
+    <string name="adduser">addUser</string>
 
 </resources>

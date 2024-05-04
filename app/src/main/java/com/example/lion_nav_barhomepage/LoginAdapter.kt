@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 
-@Suppress("DEPRECATION")
+
 internal class LoginAdapter(
     var context: Context,
     fm: FragmentManager,
@@ -21,6 +21,11 @@ internal class LoginAdapter(
                 LoginTabFragment()
 
             }
+            2 -> {
+                AdminTabFragment()
+
+            }
+
 
             else -> getItem(position)
         }

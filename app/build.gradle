@@ -39,6 +39,24 @@ android {
 }
 
 dependencies {
+    configurations.all {
+        resolutionStrategy {
+            force 'org.jetbrains.kotlin:kotlin-stdlib:1.8.22'
+        }
+    }
+    configurations.all {
+        resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+            if (details.requested.group == 'org.jetbrains.kotlin') {
+                details.useVersion '1.8.22'
+            }
+        }
+    }
+    implementation("com.google.firebase:firebase-bom:29.3.1") {
+        exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib-jdk7'
+        exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib-jdk8'
+    }
+
+
     implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
     implementation 'com.mindorks.android:prdownloader:0.6.0'
     implementation 'com.google.firebase:firebase-auth-ktx:21.0.3'
@@ -125,6 +143,11 @@ dependencies {
     implementation "androidx.preference:preference-ktx:$preference_version"
 
     implementation 'androidx.webkit:webkit:1.2.0'
+
+    implementation('org.jetbrains.kotlin:kotlin-stdlib:1.8.22') {
+        exclude module: 'kotlin-stdlib-jdk7'
+        exclude module: 'kotlin-stdlib-jdk8'
+    }
 
 
 
