@@ -20,6 +20,11 @@ import com.example.lion_nav_barhomepage.patientdashboard.reports.ReportsFragment
 import com.example.lion_nav_barhomepage.patientdashboard.vaccines.VaccinesFragment
 import com.example.lion_nav_barhomepage.sharedPreferences
 
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+
+
+
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
@@ -34,77 +39,74 @@ class PatientProfileFragment : Fragment() {
     private var _binding: FragmentPatientProfileBinding? = null
     private val binding get() = _binding!!
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentPatientProfileBinding.inflate(inflater, container, false)
-        val view = binding.root
-        return view
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        (activity as AppCompatActivity).supportActionBar?.title="Patient Profile"
-        binding.app.setOnClickListener{
-            replaceFragment(PatientAppointmentsFragment())
-        }
-        binding.vaccine.setOnClickListener{
-            replaceFragment(VaccinesFragment())
-        }
-        binding.results.setOnClickListener{
-            replaceFragment(ReportsFragment())
-        }
+        super.onViewCreated(view, savedInstanceState)
+        (activity as AppCompatActivity).supportActionBar?.title = "Patient Profile"
 
-        binding.diagnosis.setOnClickListener{
-            replaceFragment(DiagnosisFragment())
-        }
+        setupUI()
+    }
 
-        binding.editButton.setOnClickListener {
-            replaceFragment(EditProfileFragment())
-        }
-        binding.logoutButton.setOnClickListener {
-            logout()
-        }
-        binding.pname.setText( patient_main_data.name)
-        binding.pemail.setText( patient_main_data.email)
-        binding.pid.setText( patient_main_data.id)
-        val img_url= patient_main_data.img_url.toString()
-        if (img_url == ""){
-            binding.pimg.setImageResource(R.drawable.user_icon)
-        }
-        else {
-            binding.pimg
-                .load(img_url?.toUri()) {
+    private fun setupUI() {
+        binding.apply {
+            app.setOnClickListener { replaceFragment(PatientAppointmentsFragment()) }
+            vaccine.setOnClickListener { replaceFragment(VaccinesFragment()) }
+            results.setOnClickListener { replaceFragment(ReportsFragment()) }
+            diagnosis.setOnClickListener { replaceFragment(DiagnosisFragment()) }
+            editButton.setOnClickListener { replaceFragment(EditProfileFragment()) }
+            logoutButton.setOnClickListener { logout() }
+            deactivateButton.setOnClickListener { deactivateAccount() }
+
+            pname.text = patient_main_data.name
+            pemail.text = patient_main_data.email
+            pid.text = patient_main_data.id
+            val img_url = patient_main_data.img_url
+            if (img_url.isNullOrEmpty()) {
+                pimg.setImageResource(R.drawable.user_icon)
+            } else {
+                pimg.load(img_url.toUri()) {
                     placeholder(R.drawable.loading_animation)
                     error(R.drawable.ic_broken_image)
                 }
+            }
         }
-        super.onViewCreated(view, savedInstanceState)
-
     }
 
-    fun replaceFragment(fragment: Fragment) {
-        val fragmentManager = parentFragmentManager
-        val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.framelayout, fragment)
-        fragmentTransaction.commit()
+    private fun deactivateAccount() {
+        val userId = patient_main_data.email
+        if (userId.isNullOrEmpty()) {
+            Toast.makeText(context, "Invalid user ID", Toast.LENGTH_LONG).show()
+            return
+        }
 
+        val db = Firebase.firestore
+        db.collection("USERS").document(userId).update("isActive", false)
+            .addOnSuccessListener {
+                Toast.makeText(context, "Account deactivated", Toast.LENGTH_SHORT).show()
+                logout()
+            }
+            .addOnFailureListener { e ->
+                Toast.makeText(context, "Failed to deactivate account: ${e.message}", Toast.LENGTH_LONG).show()
+            }
     }
+
     private fun logout() {
-        sharedPreferences = this.requireActivity().getSharedPreferences("login", AppCompatActivity.MODE_PRIVATE)
-        sharedPreferences.edit().putBoolean("logged",false).apply()
-        Toast.makeText(
-            context,
-            "logging out from account",
-            Toast.LENGTH_SHORT
-        ).show()
-        val intent = Intent(this.context, IntroActivity::class.java)
-        startActivity(intent)
+        sharedPreferences = requireActivity().getSharedPreferences("login", AppCompatActivity.MODE_PRIVATE)
+        sharedPreferences.edit().putBoolean("logged", false).apply()
+        Toast.makeText(context, "Logging out from account", Toast.LENGTH_SHORT).show()
+        startActivity(Intent(context, IntroActivity::class.java))
     }
 
+    private fun replaceFragment(fragment: Fragment) {
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.framelayout, fragment)
+            .commit()
+    }
 }
